@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Jquery link -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <!-- Compiled and minified Materialize.css CSS -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <!-- Materialize Icons -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <!-- Custom CSS Stylesheet -->
+        <link rel="stylesheet" href="./assets/css/style.css">
+    </head>
+    <body>
+        <!-- Header -->
+        <nav class="indigo darken-2">
+            <div class="nav-wrapper center">
+                <a class="brand-logo center">Weather Dashboard</a>
+            </div>
+        </nav>
+        <section>
+        <div class="row">
+            <div class="col s12 m4 l3 pink lighten-4" id="search-container">
+                <div class="collection">
+                    <div class="collection-item row" id="search-bar">
+                        <div class="valign-wrapper">
+                            <input type="text" id="city-search-input" placeholder="Search Cities Here">
+                            <a class="btn-floating btn-large waves-effect waves-light red right-align" id="search-btn"><i class="material-icons">search</i></a>
+                        </div>
+                    </div>
+                    <hr class=""></hr>
+                    <ul class="collection">
+                        <li class="collection-item avatar">
+                          <img src="" alt="" class="circle">
+                          <span class="title">Title</span>
+                          <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                        </li>
+                        <li class="collection-item avatar">
+                            <img src="" alt="" class="circle">
+                            <span class="title">Title</span>
+                            <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                        </li>
+                        <li class="collection-item avatar active">
+                            <img src="" alt="" class="circle">
+                            <span class="title">Title</span>
+                            <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                        </li>
+                        <li class="collection-item avatar">
+                            <img src="" alt="" class="circle">
+                            <span class="title">Title</span>
+                            <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
+                        </li>
+                      </ul>
+                </div>
+            </div>
+    
+            <div class="col s12 m8 l9 indigo lighten-3">
+            <!--This content will be:
+            9-columns-wide on large screens,
+            8-columns-wide on medium screens,
+            12-columns-wide on small screens  -->
+                <div class="container" id="today-box"></div>
+                <div class="container" id="5-day-box"></div>
+            </div>
+    
+        </div>
+        </section>
+
+
+        <!-- Compiled and minified Materialize.css JavaScript -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        <script src="./assets/js/script.js" async defer></script>
+    </body>
+</html>

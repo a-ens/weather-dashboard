@@ -1,0 +1,31 @@
+html, body{min-height:100%;}
+body{height:100vh;}
+
+nav {
+    height:10%; 
+}
+
+.nav-wrapper {
+    background: linear-gradient(to right, rgb(56, 0, 187) , rgb(109, 199, 206)); 
+}
+
+section {
+    height: 90%;
+}
+
+#search-bar {
+    flex-direction: row;
+}
+
+#city-search-input {
+    width: auto;
+}
+
+.valign-wrapper {
+    width: max-content;
+}
+
+li {
+    width: 100%;
+}
+
