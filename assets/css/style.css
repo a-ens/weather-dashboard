@@ -13,6 +13,14 @@ section {
     height: 90%;
 }
 
+#full-body {
+    height: 100%;
+}
+
+#right-section {
+    height: 100%;
+}
+
 #search-bar {
     flex-direction: row;
 }
@@ -29,3 +37,21 @@ li {
     width: 100%;
 }
 
+#today-box {
+    height: 45%;
+    width: 100%;
+}
+
+#five-day-box {
+    height: 45%;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.card {
+    max-height: 95%;
+}
+
+h3 {
+    margin: 0;
+}
