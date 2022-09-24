@@ -6,6 +6,8 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Momentjs Link -->
+        <script type = "text/JavaScript" src = " https://MomentJS.com/downloads/moment.js"></script>
         <!-- Jquery link -->
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
         <!-- Compiled and minified Materialize.css CSS -->
@@ -29,7 +31,7 @@
                 <div class="collection">
                     <div class="collection-item row" id="search-bar">
                         <form class="valign-wrapper" id="search-form">
-                            <input type="text" placeholder="Search City" name="city-search-input">
+                            <input type="text" placeholder="Search City" id="city-search-input">
                             <button type="submit"><i class="material-icons" id="search-btn">search</i></button>
                         </form>
 
@@ -37,8 +39,8 @@
                             <a class="btn-floating btn-large waves-effect waves-light red right-align" id="search-btn"><i class="material-icons">search</i></a> -->
                     </div>
                     <hr class=""></hr>
-                    <ul class="collection">
-                        <li class="collection-item avatar">
+                    <ul class="collection" id="search-history">
+                        <!-- <li class="collection-item avatar">
                           <img src="" alt="" class="circle">
                           <span class="title">Title</span>
                           <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
@@ -57,7 +59,7 @@
                             <img src="" alt="" class="circle">
                             <span class="title">Title</span>
                             <a href="#!" class="secondary-content"><i class="material-icons">grade</i></a>
-                        </li>
+                        </li> -->
                       </ul>
                 </div>
             </div>
@@ -71,7 +73,7 @@
                 <div class="container" id="five-day-section">
                     <h3>Five Day Forecast:</h3>
                     <div class="row justify-content-space-between" id="five-day-box">
-                        <div class="col s6 m2 l2">
+                        <!-- <div class="col s6 m2 l2">
                             <div class="card cyan darken-4">
                                 <div class="card-content white-text">
                                     <span class="card-title">Card Title</span>
@@ -115,7 +117,7 @@
                                     I am convenient because I require little markup to use effectively.</p>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
