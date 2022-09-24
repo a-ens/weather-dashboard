@@ -1,8 +1,13 @@
-html, body{min-height:100%;}
-body{height:100vh;}
+html, body { 
+    min-height:100vh;
+}
+body { 
+    height: 100vh;
+}
 
 nav {
     height:10%; 
+    margin: 0;
 }
 
 .nav-wrapper {
@@ -38,7 +43,10 @@ li {
 }
 
 #today-box {
-    height: 45%;
+    width: 100%;
+}
+
+#five-day-section {
     width: 100%;
 }
 
