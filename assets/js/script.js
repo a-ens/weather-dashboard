@@ -9,31 +9,32 @@ let cityInputText = undefined
 
 
 function callWeather(city) {
-
-    let apiCall = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=1&appid=` + weatherAPIKey;
+    
+    let apiCall = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&limit=1&appid=${weatherAPIKey}`;
 
     $.ajax({
         url: apiCall,
         method: "GET"
     }).then(function(firstWeatherResponse) {
         console.log(firstWeatherResponse);
-    
 
-    $("").css("display", "block");
+    // $("").css("display", "block");
     $("#today-box").empty();
 
 
-    let latitude = firstWeatherResponse.lat;
-    let longitude = firstWeatherResponse.lon;
+    let latitude = firstWeatherResponse.coord.lat;
+    let longitude = firstWeatherResponse.coord.lon;
+
+        
 
     let iconCode = firstWeatherResponse.weather[0].icon;
-    let iconURL = `https://openweathermap.org/img/w/` + iconCode + `.png`;
+    let iconURL = `https://openweathermap.org/img/w/${iconCode}.png`;
 
-    let cityName = cityWeatherResponse.name
-    let cityDescription = cityWeatherResponse.weather[0].description
-    let cityTemp = cityWeatherResponse.main.temp
-    let cityHumidity = cityWeatherResponse.main.humidity
-    let cityWindSpeed = cityWeatherResponse.wind.speed
+    let cityName = firstWeatherResponse.name
+    let cityDescription = firstWeatherResponse.weather[0].description
+    let cityTemp = firstWeatherResponse.main.temp
+    let cityHumidity = firstWeatherResponse.main.humidity
+    let cityWindSpeed = firstWeatherResponse.wind.speed
 
     let currentWeather = $(
         `<h2 id="currentCity">${cityName} ${today} <img src="${iconURL}" alt="${cityDescription}"/></h2>
@@ -44,7 +45,11 @@ function callWeather(city) {
 
     $('#today-box').append(currentWeather);
 
-    let uviCall = `https://api.openweathermap.org/data/2.5/uvi?lat=` + latitude + `&lon=` + longitude + `&appid=` + weatherAPIKey;
+
+    console.log(latitude)
+
+
+    let uviCall = `https://api.openweathermap.org/data/2.5/uvi?lat=${latitude}&lon=${longitude}&appid=${weatherAPIKey}`;
 
         $.ajax({
             url: uviCall,
@@ -81,14 +86,14 @@ function callWeather(city) {
 
 function fiveDayForecast (latitude, longitude){
 
-    let fiveDayCall = `api.openweathermap.org/data/2.5/forecast?lat=` + latitude + `&lon=` + longitude + `&appid=` + weatherAPIKey
+    let fiveDayCall = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&units=imperial&exclude=current,minutely,hourly,alerts&appid=${weatherAPIKey}`;
 
     $.ajax({
         url: fiveDayCall,
         method: "GET"
     }).then(function(fiveDayResponse) {
         console.log(fiveDayResponse);
-        $("#fiveDay").empty();
+        $("#five-day-box").empty();
         
         for (let i = 1; i < 6; i++) {
             let cityInfo = {
@@ -98,7 +103,7 @@ function fiveDayForecast (latitude, longitude){
                 humidity: fiveDayResponse.daily[i].humidity
             };
 
-            let thisDate = moment.unix(cityInfo.date).format("MM/DD/YYYY");
+            let thisDate = moment.unix(cityInfo.date).format("MMM DD");
             let iconURL = `<img src="https://openweathermap.org/img/w/${cityInfo.icon}.png" alt="${fiveDayResponse.daily[i].weather[0].main}" />`;
 
             // displays the date
@@ -106,7 +111,7 @@ function fiveDayForecast (latitude, longitude){
             // the temperature
             // the humidity
             let fiveDayCard = $(
-            `<div class="col s6 m2 l2 forecast-card">
+            `<div class="col s6 m4 l2 forecast-card">
                 <div class="card cyan darken-4">
                     <div class="card-content white-text">
                         <span class="card-title">${thisDate}</span>
@@ -133,8 +138,8 @@ $("#search-btn").on("click", function(event) {
     if (!searchHistory.includes(city)) {
         searchHistory.push(city);
         let searchedCity = $(`
-            <li class="search-history-item">${city}</li>
-            `);
+            <a href="#!" class="collection-item search-history-item">${city}</a>
+        `);
         $("#search-history").append(searchedCity);
     };
     
@@ -143,7 +148,9 @@ $("#search-btn").on("click", function(event) {
 });
 
 $(document).on("click", ".search-history-item", function() {
+    
     let pastCity = $(this).text();
+    console.log(`${pastCity}`);
     callWeather(pastCity);
 });
 
